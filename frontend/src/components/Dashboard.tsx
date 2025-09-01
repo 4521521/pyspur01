@@ -1028,8 +1028,8 @@ const Dashboard: React.FC = () => {
             {isDragActive && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary/10 backdrop-blur-sm border-2 border-dashed border-primary rounded-lg z-50 transition-all duration-300 animate-in fade-in">
                     <Upload className="w-16 h-16 text-primary mb-4" />
-                    <p className="text-primary text-xl font-bold">Drop workflow JSON file here</p>
-                    <p className="text-primary/80 text-sm mt-2">Release to import your workflow</p>
+                    <p className="text-primary text-xl font-bold">在这里放置工作流JSON文件</p>
+                    <p className="text-primary/80 text-sm mt-2">发布以导入您的工作流</p>
                 </div>
             )}
             <Head>
@@ -1056,15 +1056,16 @@ const Dashboard: React.FC = () => {
                                     className="mb-2"
                                     startContent={<Icon icon="lucide:alert-triangle" width={16} />}
                                 >
-                                    No API keys have been set. Please configure your API keys in the settings to use the
-                                    application.
+                                    {/* No API keys have been set. Please configure your API keys in the settings to use the
+                                    application. */}
+                                    没有设置API密钥。请在设置中配置您的API密钥以使用应用程序。
                                 </Alert>
                             </div>
                         )}
                     <div className="flex w-full items-center">
                         <div className="flex flex-col max-w-fit" id="dashboard-title">
-                            <h1 className="text-lg font-bold text-default-900 lg:text-2xl">Dashboard</h1>
-                            <p className="text-small text-default-400 lg:text-medium">Manage your spurs</p>
+                            <h1 className="text-lg font-bold text-default-900 lg:text-2xl">指示板</h1>
+                            <p className="text-small text-default-400 lg:text-medium">管理spurs</p>
                         </div>
                         <div className="ml-auto flex items-center gap-2" id="new-workflow-entries">
                             <Button
@@ -1083,7 +1084,8 @@ const Dashboard: React.FC = () => {
                                 }
                                 onPress={handleImportWorkflowClick}
                             >
-                                Import Spur (or drop JSON file)
+                                {/* Import Spur (or drop JSON file) */}
+                                导入spur (或拖放JSON文件)
                             </Button>
                         </div>
                     </div>
@@ -1097,7 +1099,7 @@ const Dashboard: React.FC = () => {
                     <AccordionItem
                         key="workflows"
                         aria-label="Recent Spurs"
-                        title={<h3 className="text-xl font-semibold">Recent Spurs</h3>}
+                        title={<h3 className="text-xl font-semibold">最近的 Spurs</h3>}
                     >
                         {isLoadingWorkflows ? (
                             <div className="flex justify-center p-4">
@@ -1224,10 +1226,12 @@ const Dashboard: React.FC = () => {
                             <div className="flex flex-col items-center justify-center p-12 my-8 bg-background rounded-xl border-border border shadow-sm">
                                 <div className="max-w-2xl text-center mb-12">
                                     <h3 className="text-2xl font-semibold mb-4 text-foreground flex items-center justify-center gap-2">
-                                        欢迎来到智能化编排平台!
+                                        欢迎来到 PySpur!
                                     </h3>
                                     <p className="text-lg text-muted-foreground">
-                                       让我们开始吧
+                                        {/* Looks like you haven&apos;t created any spurs yet - let&apos;s get you started
+                                        on your journey! */}
+                                        看起来你还没有创建任何 spur - 让我们开始你的旅程吧！
                                     </p>
                                 </div>
 
@@ -1239,10 +1243,11 @@ const Dashboard: React.FC = () => {
                                         <div className="rounded-full bg-background p-4 mb-4 border border-border">
                                             <Icon icon="lucide:plus" className="w-8 h-8 text-foreground" />
                                         </div>
-                                        <h4 className="text-lg font-medium mb-3 text-foreground">Create New</h4>
+                                        <h4 className="text-lg font-medium mb-3 text-foreground">新建</h4>
                                         <p className="text-medium text-center text-muted-foreground">
-                                            Start fresh with your own creation using the &quot;New Spur&quot; button
-                                            above
+                                            {/* Start fresh with your own creation using the &quot;New Spur&quot; button
+                                            above */}
+                                            使用上面的“新建”按钮开始你的创作
                                         </p>
                                     </div>
 
@@ -1253,10 +1258,11 @@ const Dashboard: React.FC = () => {
                                         <div className="rounded-full bg-background p-4 mb-4 border border-border">
                                             <Icon icon="lucide:upload" className="w-8 h-8 text-foreground" />
                                         </div>
-                                        <h4 className="text-lg font-medium mb-3 text-foreground">Import Existing</h4>
+                                        <h4 className="text-lg font-medium mb-3 text-foreground">导入spur</h4>
                                         <p className="text-medium text-center text-muted-foreground">
-                                            Have a spur saved as JSON? Use the &quot;Import Spur&quot; button to bring
-                                            it in
+                                            {/* Have a spur saved as JSON? Use the &quot;Import Spur&quot; button to bring
+                                            it in */}
+                                            有一个保存为 JSON 的 spur 吗？使用“导入 Spur”按钮将其导入
                                         </p>
                                     </div>
 
@@ -1272,9 +1278,10 @@ const Dashboard: React.FC = () => {
                                         <div className="rounded-full bg-background p-4 mb-4 border border-border">
                                             <Icon icon="lucide:layout-grid" className="w-8 h-8 text-foreground" />
                                         </div>
-                                        <h4 className="text-lg font-medium mb-3 text-foreground">Use Template</h4>
+                                        <h4 className="text-lg font-medium mb-3 text-foreground">利用模板</h4>
                                         <p className="text-medium text-center text-muted-foreground">
-                                            Get started quickly with our ready-to-go templates in the section below
+                                            {/* Get started quickly with our ready-to-go templates in the section below */}
+                                            在下面的部分中，使用我们的现成模板快速开始
                                         </p>
                                     </div>
                                 </div>
