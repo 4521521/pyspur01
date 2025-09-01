@@ -1,0 +1,140 @@
+---
+title: 'Quickstart'
+description: 'Install PySpur in under 2 minutes'
+---
+
+## Setup Options
+
+Choose the installation method that best suits your needs:
+
+### Option A: Using `pyspur` Python Package
+
+This is the quickest way to get started. Python 3.12 or higher is required.
+
+<AccordionGroup>
+  <Accordion icon="python" title="1. Install PySpur">
+    ```sh
+    pip install pyspur
+    ```
+  </Accordion>
+  <Accordion icon="folder" title="2. Initialize a new project">
+    ```sh
+    pyspur init my-project
+    cd my-project
+    ```
+    This will create a new directory with a `.env` file.
+  </Accordion>
+  <Accordion icon="play" title="3. Start the server">
+    ```sh
+    pyspur serve --sqlite
+    ```
+    By default, this will start PySpur app at `http://localhost:6080` using a sqlite database.
+    We recommend you configure a postgres instance URL in the `.env` file to get a more stable experience.
+  </Accordion>
+  <Accordion icon="gear" title="4. Customize Your Deployment">
+    You can customize your PySpur deployment in two ways:
+
+    a. **Through the app** (Recommended):
+       - Navigate to the API Keys tab in the app
+       - Add your API keys for various providers (OpenAI, Anthropic, etc.)
+       - Changes take effect immediately
+
+    b. **Manual Configuration**:
+       - Edit the `.env` file in your project directory
+       - It is recommended to configure a postgres database in .env for more reliability
+       - Restart the app with `pyspur serve`. Add `--sqlite` if you are not using postgres
+  </Accordion>
+</AccordionGroup>
+
+### Option B: Using Docker (Recommended for Scalable, In-Production Systems)
+
+This is the recommended way for production deployments:
+
+<AccordionGroup>
+  <Accordion icon="docker" title="1. Install Docker">
+    First, install Docker by following the official installation guide for your operating system:
+    - [Docker for Linux](https://docs.docker.com/engine/install/)
+    - [Docker Desktop for Mac](https://docs.docker.com/desktop/install/mac-install/)
+  </Accordion>
+  <Accordion icon="terminal" title="2. Create a PySpur Project">
+    Once Docker is installed, create a new PySpur project with:
+    ```sh
+    curl -fsSL https://raw.githubusercontent.com/PySpur-com/pyspur/main/start_pyspur_docker.sh | bash -s pyspur-project
+    ```
+    This will:
+    - Start a new PySpur project in a new directory called `pyspur-project`
+    - Set up the necessary configuration files
+    - Start PySpur app automatically backed by a local postgres docker instance
+  </Accordion>
+  <Accordion icon="browser" title="3. Access PySpur">
+    Go to `http://localhost:6080` in your browser.
+  </Accordion>
+  <Accordion icon="gear" title="4. Customize Your Deployment">
+    You can customize your PySpur deployment in two ways:
+
+    a. **Through the app** (Recommended):
+       - Navigate to the API Keys tab in the app
+       - Add your API keys for various providers (OpenAI, Anthropic, etc.)
+       - Changes take effect immediately
+
+    b. **Manual Configuration**:
+       - Edit the `.env` file in your project directory
+       - Restart the services with:
+         ```sh
+         docker compose up -d
+         ```
+  </Accordion>
+</AccordionGroup>
+
+### Using Local Models with Ollama
+
+<AccordionGroup>
+<Accordion icon="server" title="Configure Ollama">
+  1. Start Ollama service with:
+  ```sh
+  OLLAMA_HOST="0.0.0.0" ollama serve
+  ```
+  2. Update your `.env` file with:
+  ```sh
+  OLLAMA_BASE_URL=http://host.docker.internal:11434
+  ```
+  3. Download models using: `ollama pull <model-name>`
+  4. Select Ollama models from the sidebar for LLM nodes
+
+  Note: PySpur only works with models that support structured-output and json mode. Most newer models should be good, but please confirm this from Ollama documentation for the model you wish to use.
+</Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+After installation, you can:
+
+- 🪄 **Create New Workflow**
+  Click "New Spur" to create a workflow from scratch
+- 📋 **Use Templates**
+  Start with one of our pre-built templates
+- 💾 **Import Spur JSONs**
+  Import spurs shared by other users
+- 🌐 **Deploy as API**
+  Single click using the "Deploy" button in the top bar
+
+
+## Need Help?
+
+<CardGroup>
+<Card
+  title="Join Our Discord"
+  icon="discord"
+  href="https://discord.gg/7Spn7C8A5F"
+>
+  Connect with the community and get help
+</Card>
+
+<Card
+  title="Talk to Creators"
+  icon="calendar"
+  href="https://calendly.com/d/cnf9-57m-bv3/pyspur-founders"
+>
+  Schedule a call with the PySpur team
+</Card>
+</CardGroup>
